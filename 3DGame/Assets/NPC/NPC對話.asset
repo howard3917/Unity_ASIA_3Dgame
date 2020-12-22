@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e84e61ea64ccb47ac05f240a6a40f0, type: 3}
   m_Name: "NPC\u5C0D\u8A71"
   m_EditorClassIdentifier: 
-  dialougA: "HI\t\t\t\t\t\t\t"
-  dialougB: U SUCK
-  dialougC: ...............................................
+  dialogA: Wanna hang out with me?
+  dialogB: WTF
+  dialogC: GTFCOUT
   count: 0
   countCurrent: 0

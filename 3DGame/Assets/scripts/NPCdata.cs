@@ -4,11 +4,11 @@
 public class NPCdata : ScriptableObject
 {
     [Header("第一段對話"), TextArea(1,5)]
-    public string dialougA; 
+    public string dialogA; 
    [Header("第二段對話"), TextArea(1, 5)] 
-   public string dialougB;
+   public string dialogB;
     [Header("第三段對話"), TextArea(1, 5)]
-   public string dialougC;
+   public string dialogC;
     [Header("任務項目需求數量")]
     public int count;
     [Header("已經取得項目數量")]
