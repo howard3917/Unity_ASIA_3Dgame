@@ -10,7 +10,10 @@ public class Enemy : MonoBehaviour
     public float stopDistance = 5f;
     [Header("攻擊冷卻"), Range(0, 50)]
     public float cd = 2f;
-
+    [Header("攻擊長度"), Range(0f,5f)]
+    public float atkLength;
+    [Header("攻擊中心點")]
+    public Transform atkpoint;
 
 
     private Transform player;
@@ -18,6 +21,12 @@ public class Enemy : MonoBehaviour
     private Animator ani;
 
     private float timer;
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(atkpoint.position, atkpoint.forward * atkLength);
+    }
 
     private void Awake()
     {
@@ -37,6 +46,9 @@ public class Enemy : MonoBehaviour
         Attack();
     }
 
+
+    private RaycastHit hit; 
+
     private void Attack()
     {
         if (nav.remainingDistance < stopDistance)
@@ -54,6 +66,11 @@ public class Enemy : MonoBehaviour
                 ani.SetTrigger("攻擊");
 
                 timer = 0;
+
+               if (Physics.Raycast(atkpoint.position, atkpoint.forward, out hit, atkLength, 1 << 8))
+                    {
+                    hit.collider.GetComponent<Player>().Damage();
+                }
             }
         }
     }
